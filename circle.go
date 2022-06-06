@@ -1,4 +1,4 @@
-package shape
+package golang_united_school_homework
 
 import "math"
 
