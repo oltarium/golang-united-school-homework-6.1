@@ -102,12 +102,15 @@ func isCircle(t interface{}) bool {
 // whether circles are not exist in the list, then returns an error
 func (b *box) RemoveAllCircles() error {
 	result := []Shape{}
-	for i := 0; i < len(b.shapes); i++ {
-		if !isCircle(b.shapes[i]) {
-			result = append(result, b.shapes[i])
+	isCircleExists := false
+	for _, el := range b.shapes {
+		if !isCircle(el) {
+			result = append(result, el)
+		} else {
+			isCircleExists = true
 		}
 	}
-	if len(result) == len(b.shapes) {
+	if !isCircleExists {
 		return errors.New("No Circles in the list")
 	}
 	b.shapes = result
