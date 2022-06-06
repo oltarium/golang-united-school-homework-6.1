@@ -2,6 +2,7 @@ package golang_united_school_homework
 
 import (
 	"errors"
+	"reflect"
 )
 
 // box contains list of shapes and able to perform operations on them
@@ -89,22 +90,13 @@ func (b *box) SumArea() float64 {
 
 }
 
-func isCircle(t interface{}) bool {
-	switch t.(type) {
-	case Circle:
-		return true
-	default:
-		return false
-	}
-}
-
 // RemoveAllCircles removes all circles in the list
 // whether circles are not exist in the list, then returns an error
 func (b *box) RemoveAllCircles() error {
 	result := []Shape{}
 	isCircleExists := false
 	for _, el := range b.shapes {
-		if !isCircle(el) {
+		if reflect.TypeOf(el).Name() != "Circle" {
 			result = append(result, el)
 		} else if el != nil {
 			isCircleExists = true
