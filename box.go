@@ -103,7 +103,7 @@ func (b *box) RemoveAllCircles() error {
 		}
 	}
 	if !isCircleExists {
-		return errors.New("No Circles in the list")
+		return errors.New(reflect.TypeOf(b.shapes[0]).String())
 	}
 	b.shapes = result
 	return nil
