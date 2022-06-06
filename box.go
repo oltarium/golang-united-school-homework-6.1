@@ -106,7 +106,7 @@ func (b *box) RemoveAllCircles() error {
 	for _, el := range b.shapes {
 		if !isCircle(el) {
 			result = append(result, el)
-		} else {
+		} else if el != nil {
 			isCircleExists = true
 		}
 	}
