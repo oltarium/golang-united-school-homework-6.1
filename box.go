@@ -96,7 +96,7 @@ func (b *box) RemoveAllCircles() error {
 	result := []Shape{}
 	isCircleExists := false
 	for _, el := range b.shapes {
-		if reflect.TypeOf(el).String() != "*shape.Circle" {
+		if reflect.TypeOf(el).String() != "*Circle" {
 			result = append(result, el)
 		} else {
 			isCircleExists = true
